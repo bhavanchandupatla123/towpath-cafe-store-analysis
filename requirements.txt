@@ -1,0 +1,6 @@
+pandas>=2.0
+numpy
+openpyxl
+matplotlib
+tabulate
+jupyter

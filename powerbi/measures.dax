@@ -1,0 +1,147 @@
+// =====================================================================
+//  The Towpath - DAX measures (39), stored in the _Measures table
+//  "Suspicious" lines (quantity > 10) are excluded from every measure.
+// =====================================================================
+
+// ---------- CORE SALES ----------
+Total Revenue =
+SUMX (
+    FILTER ( Sales, Sales[line_type] <> "Suspicious" ),
+    Sales[quantity] * Sales[unit_price]
+)
+
+Total Customers =
+CALCULATE (
+    DISTINCTCOUNT ( Sales[transaction_id] ),
+    Sales[line_type] = "Sale"
+)
+
+Items Sold =
+CALCULATE ( SUM ( Sales[quantity] ), Sales[line_type] = "Sale" )
+
+Avg Spend per Customer =
+DIVIDE ( [Total Revenue], [Total Customers] )
+
+Products per Receipt =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( Sales ), Sales[line_type] = "Sale" ),
+    [Total Customers]
+)
+
+Customers per Day =
+DIVIDE ( [Total Customers], COUNTROWS ( 'Date' ) )
+
+Refund Value =
+-SUMX (
+    FILTER ( Sales, Sales[line_type] = "Refund" ),
+    Sales[quantity] * Sales[unit_price]
+)
+
+// ---------- PROFIT ----------
+Gross Profit =
+SUMX (
+    FILTER ( Sales, Sales[line_type] <> "Suspicious" ),
+    Sales[quantity] * ( Sales[unit_price] - Sales[unit_cost] )
+)
+
+Gross Margin % =
+DIVIDE ( [Gross Profit], [Total Revenue] )
+
+// ---------- TIME INTELLIGENCE ----------
+Revenue LY =
+CALCULATE ( [Total Revenue], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+
+Revenue YoY % =
+DIVIDE ( [Total Revenue] - [Revenue LY], [Revenue LY] )
+
+Customers LY =
+CALCULATE ( [Total Customers], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+
+Customers YoY % =
+DIVIDE ( [Total Customers] - [Customers LY], [Customers LY] )
+
+Gross Margin % LY =
+CALCULATE ( [Gross Margin %], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+
+Revenue YTD =
+TOTALYTD ( [Total Revenue], 'Date'[Date] )
+
+// ---------- WASTE ----------
+Waste Cost =
+SUMX ( Wastage, Wastage[quantity_wasted] * RELATED ( Products[cost_price] ) )
+
+Waste % of Revenue =
+DIVIDE ( [Waste Cost], [Total Revenue] )
+
+// ---------- STAFFING ----------
+Staff Hours =
+SUM ( Shifts[hours] )
+
+Wage Cost =
+SUMX ( Shifts, Shifts[hours] * RELATED ( Staff[hourly_rate] ) )
+
+Customers per Staff Hour =
+DIVIDE ( [Total Customers], [Staff Hours] )
+
+// ---------- STORE ----------
+Store Revenue =
+CALCULATE ( [Total Revenue], Products[business_area] = "Store" )
+
+Store Revenue LY =
+CALCULATE ( [Revenue LY], Products[business_area] = "Store" )
+
+Store Revenue YoY % =
+DIVIDE ( [Store Revenue] - [Store Revenue LY], [Store Revenue LY] )
+
+Store Customers =
+CALCULATE ( [Total Customers], Products[business_area] = "Store" )
+
+Store Customers LY =
+CALCULATE ( [Customers LY], Products[business_area] = "Store" )
+
+Store Customers YoY % =
+DIVIDE ( [Store Customers] - [Store Customers LY], [Store Customers LY] )
+
+Store Avg Spend =
+DIVIDE ( [Store Revenue], [Store Customers] )
+
+Store Waste Cost =
+CALCULATE ( [Waste Cost], Products[business_area] = "Store" )
+
+// ---------- CAFÉ ----------
+Cafe Revenue =
+CALCULATE ( [Total Revenue], Products[business_area] = "Café" )
+
+Cafe Revenue LY =
+CALCULATE ( [Revenue LY], Products[business_area] = "Café" )
+
+Cafe Revenue YoY % =
+DIVIDE ( [Cafe Revenue] - [Cafe Revenue LY], [Cafe Revenue LY] )
+
+Cafe Customers =
+CALCULATE ( [Total Customers], Products[business_area] = "Café" )
+
+Cafe Customers LY =
+CALCULATE ( [Customers LY], Products[business_area] = "Café" )
+
+Cafe Customers YoY % =
+DIVIDE ( [Cafe Customers] - [Cafe Customers LY], [Cafe Customers LY] )
+
+Cafe Avg Spend =
+DIVIDE ( [Cafe Revenue], [Cafe Customers] )
+
+Cafe Waste Cost =
+CALCULATE ( [Waste Cost], Products[business_area] = "Café" )
+
+Cafe Staff Hours =
+CALCULATE ( [Staff Hours], Staff[business_area] = "Café" )
+
+Cafe Customers per Day =
+CALCULATE (
+    DIVIDE ( [Total Customers], COUNTROWS ( 'Date' ) ),
+    Products[business_area] = "Café",
+    KEEPFILTERS ( 'Date'[Weather] <> "Not recorded" )
+)
+
+Cafe Summer Customers per Day =
+CALCULATE ( [Cafe Customers per Day], 'Date'[Season] = "Summer" )
