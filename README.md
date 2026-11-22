@@ -94,7 +94,8 @@ Raw export (8 messy sheets)
         ▼
 Clean star schema workbook  ──────────────►  Power BI dashboard (39 DAX measures, 4 pages)
         │
-        ├──►  sql/                           schema, 6 quality checks, 11 business queries
+        ├──►  sql/                           schema, 6 quality checks, 11 business queries (SQLite)
+        ├──►  sql/mysql/                     the same analysis as one MySQL 8 script
         └──►  python/02_towpath_analysis.ipynb   the full investigation with charts
 ```
 
@@ -108,6 +109,8 @@ Clean star schema workbook  ──────────────►  Power
 | `python/02_towpath_analysis.ipynb` | The analysis notebook with all outputs and charts |
 | `python/03_run_sql.py` | Loads the clean data into SQLite and runs every query in `sql/` |
 | `sql/` | Star schema, data quality checks and business questions (JOINs, CTEs, conditional aggregation, RANK, LAG, running totals) |
+| `sql/mysql/` | MySQL 8 version: one script that creates the database, loads the CSVs and runs 17 analysis queries |
+| `data/clean/csv/` | The clean tables as CSV files, for loading into MySQL |
 | `powerbi/` | Data model, the 39 DAX measures and the report pages |
 | `outputs/` | Charts, SQL results and `key_numbers.csv` |
 | `docs/` | Data dictionary and the cleaning log |
@@ -164,7 +167,7 @@ python python/03_run_sql.py               # run all SQL, writes outputs/sql_resu
 jupyter notebook python/02_towpath_analysis.ipynb
 ```
 
-For Power BI, see [powerbi/README.md](powerbi/README.md).
+For MySQL, see [sql/mysql/README.md](sql/mysql/README.md). For Power BI, see [powerbi/README.md](powerbi/README.md).
 
 ## What I would do next
 
