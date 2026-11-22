@@ -1,0 +1,7 @@
+supplier_id,supplier_name,delivery_cost,delivery_days
+SUP01,Valley Dairy Ltd,35,"Mon, Thu"
+SUP02,Black Lock Coffee Roasters,15,Tue
+SUP03,Hillside Bakery,20,Daily
+SUP04,Wholesale Direct,45,Wed
+SUP05,Fuel & Fire Co,30,Fri
+SUP06,Fresh Fields Produce,25,"Mon, Thu"

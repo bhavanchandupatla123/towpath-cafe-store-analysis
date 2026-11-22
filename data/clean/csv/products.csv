@@ -1,0 +1,41 @@
+product_id,product_name,category,business_area,cost_price,selling_price,supplier_id
+P001,Americano,Hot Drinks,Café,0.52,2.8,SUP02
+P002,Latte,Hot Drinks,Café,0.85,3.4,SUP01
+P003,Cappuccino,Hot Drinks,Café,0.83,3.4,SUP01
+P004,Flat White,Hot Drinks,Café,0.88,3.5,SUP01
+P005,Pot of Tea,Hot Drinks,Café,0.26,2.4,SUP04
+P006,Hot Chocolate,Hot Drinks,Café,0.79,3.2,SUP01
+P007,Bacon Roll,Breakfast,Café,1.13,4.5,SUP04
+P008,Full Breakfast,Breakfast,Café,3.3,9.95,SUP04
+P009,Veggie Breakfast,Breakfast,Café,2.99,9.5,SUP06
+P010,Ham & Cheese Toastie,Lunch,Café,1.44,6.25,SUP04
+P011,Tuna Sandwich,Lunch,Café,1.34,5.5,SUP06
+P012,Soup of the Day,Lunch,Café,0.93,5.95,SUP06
+P013,Jacket Potato,Lunch,Café,1.24,7.5,SUP06
+P014,Fruit Scone,Cakes & Bakes,Café,0.46,2.95,SUP03
+P015,Carrot Cake Slice,Cakes & Bakes,Café,0.82,3.75,SUP03
+P016,Chocolate Brownie,Cakes & Bakes,Café,0.62,3.25,SUP03
+P017,Croissant,Cakes & Bakes,Café,0.41,2.6,SUP03
+P018,Welsh Cake,Cakes & Bakes,Café,0.21,1.5,SUP03
+P019,Ice Cream Cone,Cold Treats,Café,0.67,3.0,SUP01
+P020,Fresh Orange Juice,Cold Drinks,Café,0.72,2.95,SUP06
+P021,Milk 2L,Dairy,Store,1.28,1.7,SUP01
+P022,White Bread Loaf,Bakery,Store,0.88,1.5,SUP03
+P023,Free Range Eggs 6pk,Dairy,Store,1.65,2.3,SUP01
+P024,Salted Butter 250g,Dairy,Store,1.95,2.5,SUP01
+P025,Mature Cheddar 400g,Dairy,Store,3.29,4.05,SUP01
+P026,Crisps,Snacks,Store,0.36,1.0,SUP04
+P027,Chocolate Bar,Snacks,Store,0.46,1.15,SUP04
+P028,Bottled Water 500ml,Drinks,Store,0.21,1.05,SUP04
+P029,Soft Drink Can,Drinks,Store,0.41,1.3,SUP04
+P030,Newspaper,News,Store,0.98,1.45,SUP04
+P031,Coal Bag 20kg,Fuel,Store,8.76,13.9,SUP05
+P032,Kiln Dried Logs,Fuel,Store,4.33,7.7,SUP05
+P033,Gas Canister,Fuel,Store,9.27,15.45,SUP05
+P034,Firelighters,Fuel,Store,0.93,2.15,SUP05
+P035,Toilet Roll 4pk,Household,Store,1.75,3.05,SUP04
+P036,Bananas (bunch),Fruit & Veg,Store,0.77,1.35,SUP06
+P037,Baked Beans,Grocery,Store,0.46,1.0,SUP04
+P038,Pasta 500g,Grocery,Store,0.52,1.15,SUP04
+P039,Dog Treats,Pet,Store,1.13,2.6,SUP04
+P040,Sun Cream SPF30,Seasonal,Store,3.6,7.2,SUP04

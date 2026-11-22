@@ -1,0 +1,11 @@
+staff_id,name,role,hourly_rate,business_area
+S01,Gwen Morgan,Owner / Manager,0.0,Both
+S02,Rhys Evans,Barista,12.21,Café
+S03,Megan Price,Cook,13.5,Café
+S04,Tomasz Nowak,Barista,12.21,Café
+S05,Aisha Khan,Café Assistant,11.44,Café
+S09,Lowri Hughes,Café Assistant,11.44,Café
+S06,Dylan Jones,Store Assistant,11.44,Store
+S07,Ffion Davies,Store Supervisor,13.0,Store
+S08,Sam O'Brien,Store Assistant,11.44,Store
+Unknown,Not recorded,Unknown,0.0,Unknown
